@@ -29,7 +29,7 @@ public class WingsUpdater
 		EntityPlayer player = ( EntityPlayer ) event.player;
 		if ( player.capabilities.isCreativeMode ) return;
 		NBTTagCompound data = player.getEntityData();
-		System.out.println(event.side+" tick "+data.hasKey(WingsItem.TICKS_TAG));
+		
 		if ( player.inventory.armorInventory[ 2 ] != null )
 		{
 			Item item = player.inventory.armorInventory[ 2 ].getItem();

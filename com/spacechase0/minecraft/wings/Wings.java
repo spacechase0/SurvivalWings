@@ -17,7 +17,7 @@ import com.spacechase0.minecraft.spacecore.BaseMod;
 import com.spacechase0.minecraft.wings.item.Items;
 import com.spacechase0.minecraft.wings.item.WingsItem;
 
-// 1.2.7 - Hopefully fixed other mods not being able to use PlayerCapabilities.allowFlying
+// 1.2.7 - Hopefully fixed other mods not being able to use PlayerCapabilities.allowFlying.
 // 1.2.6 - Updated for SpaceCore 0.7.9.
 // 1.2.5 - Updated for SpaceCore 0.7.4.
 // 1.2.4 - Updated for SpaceCore 0.6.0.
