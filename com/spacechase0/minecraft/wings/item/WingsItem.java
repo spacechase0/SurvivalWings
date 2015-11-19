@@ -16,6 +16,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
@@ -49,9 +50,11 @@ public class WingsItem extends ItemArmor
     		return;
     	}
     	
-    	if ( ++ticks >= 20 )
+    	NBTTagCompound data = player.getEntityData();
+    	data.setByte( TICKS_TAG, ( byte )( data.getByte( TICKS_TAG ) + 1 ) );
+    	if ( data.getByte( TICKS_TAG ) >= 20 )
     	{
-    		ticks -= 20;
+    		data.setByte( TICKS_TAG, ( byte ) 0 );
     		
         	int y = ( int ) player.posY;
         	int iy = y;
@@ -152,13 +155,14 @@ public class WingsItem extends ItemArmor
     	
         return model;
     }
+    
+    public static final String TICKS_TAG = "Wings_Ticks";
 	
 	private static final ArmorMaterial featherMaterial;
 	private static final ArmorMaterial obsidianMaterial;
 	private static final ArmorMaterial sturdyMaterial;
 	private static final ArmorMaterial fastMaterial;
 	private final boolean shine;
-	private static int ticks;
 	private static Map< EntityLivingBase, WingsModel > wingModels = new HashMap< EntityLivingBase, WingsModel >();
 	
 	static
